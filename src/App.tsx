@@ -5,7 +5,7 @@ import StrategyView from './pages/StrategyView';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/trading-dashboard">
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
