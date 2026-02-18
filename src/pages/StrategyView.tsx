@@ -5,27 +5,50 @@ import PositionsTable from '../components/strategy/PositionsTable';
 import TradeLog from '../components/strategy/TradeLog';
 
 export default function StrategyView() {
+
   const { id } = useParams<{ id: string }>();
+
   const navigate = useNavigate();
 
-  const strategy = strategies.find(s => s.id === id);
+
+
+  const strategy = id ? strategies.find(s => s.id === id) : undefined;
+
+
+
   if (!strategy) {
+
     return (
+
       <div className="text-center py-20">
+
         <p className="text-gray-400 text-lg">Strategy not found.</p>
+
         <button
+
           className="mt-4 text-blue-400 hover:text-blue-300 text-sm"
+
           onClick={() => navigate('/')}
+
         >
+
           ← Back to Dashboard
+
         </button>
+
       </div>
+
     );
+
   }
 
+
+
   const stratPositions = positions.filter(p => p.strategyId === id);
+
   const stratTrades = trades.filter(t => t.strategyId === id);
-  const dailyMetrics = strategyDailyMetrics[id] ?? [];
+
+  const dailyMetrics = id ? strategyDailyMetrics[id] ?? [] : [];
 
   return (
     <div className="space-y-6 max-w-[1400px] mx-auto">

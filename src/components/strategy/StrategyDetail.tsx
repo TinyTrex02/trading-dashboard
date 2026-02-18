@@ -52,7 +52,7 @@ export default function StrategyDetail({ strategy, dailyMetrics }: Props) {
               <YAxis tick={{ fill: '#9ca3af', fontSize: 11 }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}K`} />
               <Tooltip
                 contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151', borderRadius: 8 }}
-                formatter={(value: number) => [`$${value.toLocaleString()}`, 'Equity']}
+                formatter={(value) => (typeof value === 'number' ? [`$${value.toLocaleString()}`, 'Equity'] : [value, 'Equity'])}
               />
               <Line type="monotone" dataKey="equity" stroke="#3b82f6" strokeWidth={2} dot={false} />
             </LineChart>
@@ -67,7 +67,7 @@ export default function StrategyDetail({ strategy, dailyMetrics }: Props) {
               <YAxis tick={{ fill: '#9ca3af', fontSize: 11 }} tickFormatter={(v: number) => `${v.toFixed(1)}%`} />
               <Tooltip
                 contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151', borderRadius: 8 }}
-                formatter={(value: number) => [`${value.toFixed(2)}%`, 'Drawdown']}
+                formatter={(value) => (typeof value === 'number' ? [`${value.toFixed(2)}%`, 'Drawdown'] : [value, 'Drawdown'])}
               />
               <Area type="monotone" dataKey="drawdown" stroke="#ef4444" fill="#ef444433" strokeWidth={2} />
             </AreaChart>

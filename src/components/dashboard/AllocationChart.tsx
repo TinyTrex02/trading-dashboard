@@ -41,7 +41,7 @@ export default function AllocationChart() {
           </Pie>
           <Tooltip
             contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151', borderRadius: 8 }}
-            formatter={(value: number) => [`$${(value / 1000).toFixed(0)}K`, 'Equity']}
+            formatter={(value) => (typeof value === 'number' ? [`$${(value / 1000).toFixed(0)}K`, 'Equity'] : [value, 'Equity'])}
           />
           <Legend
             verticalAlign="bottom"
