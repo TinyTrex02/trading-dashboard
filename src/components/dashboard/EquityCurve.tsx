@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { portfolioDailyMetrics } from '../../data/sampleData';
+import { GlowingEffect } from '../ui/glowing-effect';
 
 export default function EquityCurve() {
   const data = portfolioDailyMetrics.map(m => ({
@@ -9,7 +10,15 @@ export default function EquityCurve() {
   }));
 
   return (
-    <div className="bg-gray-800 rounded-lg p-5 border border-gray-700">
+    <div className="relative bg-gray-800 rounded-lg p-5 border border-gray-700">
+      <GlowingEffect
+        spread={60}
+        glow={true}
+        disabled={false}
+        proximity={80}
+        inactiveZone={0.01}
+        borderWidth={2}
+      />
       <h3 className="text-sm font-semibold text-gray-300 mb-4">Portfolio Equity Curve (90 Days)</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data}>

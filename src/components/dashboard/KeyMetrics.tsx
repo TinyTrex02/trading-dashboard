@@ -1,11 +1,22 @@
 import { portfolioSummary } from '../../data/sampleData';
+import { GlowingEffect } from '../ui/glowing-effect';
 
 function MetricCard({ label, value, sub, color }: { label: string; value: string; sub?: string; color?: string }) {
   return (
-    <div className="bg-gray-800 rounded-lg p-5 border border-gray-700">
-      <p className="text-xs uppercase tracking-wider text-gray-400 mb-1">{label}</p>
-      <p className={`text-2xl font-bold ${color ?? 'text-white'}`}>{value}</p>
-      {sub && <p className={`text-sm mt-1 ${color ?? 'text-gray-400'}`}>{sub}</p>}
+    <div className="relative bg-gray-800 rounded-lg p-5 border border-gray-700">
+      <GlowingEffect
+        spread={40}
+        glow={true}
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={2}
+      />
+      <div className="relative">
+        <p className="text-xs uppercase tracking-wider text-gray-400 mb-1">{label}</p>
+        <p className={`text-2xl font-bold ${color ?? 'text-white'}`}>{value}</p>
+        {sub && <p className={`text-sm mt-1 ${color ?? 'text-gray-400'}`}>{sub}</p>}
+      </div>
     </div>
   );
 }
