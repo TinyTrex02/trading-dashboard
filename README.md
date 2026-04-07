@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+Click this link to access the dashboard : 
+https://tinytrex02.github.io/trading-dashboard/
+The project is a mini dashbaord i've built as Proof of Work to work on Low latency Dashboards for a firm
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
